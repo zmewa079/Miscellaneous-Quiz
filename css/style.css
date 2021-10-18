@@ -1,3 +1,33 @@
 body {
-  background-color: brown;
+  background-color: #899c7e;
 }
+
+#quiz-container {
+  border-style: solid;
+  border-radius: 50px;
+  border-width: 10px;
+}
+
+#question-container {
+  text-align: center;
+}
+
+.quizButtons {
+  display: flex;
+  gap: 50px;
+  justify-content: center;
+}
+
+
+#answerchoice-buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 50px;
+}
+
+.btn {
+  background-color: #b5afc6;
+  padding: 10px;
+}
+
