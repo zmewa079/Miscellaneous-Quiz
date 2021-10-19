@@ -22,6 +22,11 @@ body {
   justify-content: center;
 }
 
+.control-buttons {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
 
 #answerchoiceQ1-buttons {
   display: flex;
@@ -35,3 +40,13 @@ body {
   padding: 10px;
 }
 
+.startBtn {
+  background-color: #b5afc6;
+  padding: 10px;
+}
+
+.submitBtn {
+  background-color: #b5afc6;
+  padding: 10px;
+  
+}

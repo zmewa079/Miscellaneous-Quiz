@@ -6,7 +6,7 @@ import {getpopCultureQuiz, gettrueOrFalseQuiz, getfunnyTriviaQuiz,getbrandSlogan
 // let funnyTrivia 
 // let brandSlogans
 // let randomQuiz
-// let question
+let question
 // let popcultureQuiz
 
 /*------------------------ Cached Element References ------------------------*/
@@ -37,18 +37,21 @@ function createQuiz(evt) {
   }
 }
 
-
-
-
-
-// function quiz() {
-//   randomQuiz = [popcultureQuizBtn, trueOrFalseQuizBtn, funnyTriviaQuizBtn, brandSlogansQuiz]
+// function showQuestion() {
+  
 // }
 
-function renderpopCultureQuiz() {
-  
+
+randomQuizArray = [popcultureQuizBtn, trueOrFalseQuizBtn, funnyTriviaQuizBtn, brandSlogansQuiz]
+
+function getRandomQuiz() {
+
 }
 
-function handleclick(evt) {
+// function renderpopCultureQuiz() {
+  
+// }
+
+// function handleclick(evt) {
     
-  }
+//   }
