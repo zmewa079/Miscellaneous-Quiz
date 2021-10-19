@@ -1,7 +1,6 @@
-const popCultureQuiz = {
+const popCultureQuiz = [{
   question1: "How many Harry Potter films have been made?",
-  answerChoices: ['seven', 'nine', 'eight', 'six' ],
-  rightAnswer: 2,
+  answers: [ {text:'seven', correct: 'false'},{text:'nine', correct: 'false'} , {text:'eight', correct: 'true'}, {text:'six', correct: 'false'}],
 
   question2: "What day is Star Wars day?",
   answerChoices: ['October 3', 'May 4', 'January 9', 'July 4'],
@@ -18,9 +17,9 @@ const popCultureQuiz = {
   question5: " In the iconic titanic meme, Rose says: It's been blank years. What is the blank?",
   answerChoices: ["89", "47", "74", "84"],
   rightAnswer: 3,
-  }
+  }]
 
-const trueOrFalseQuiz = {
+const trueOrFalseQuiz = [{
   question1: "In Scotland, the unicorn is their national animal.",
   answerChoices: ['True', 'False'],
 
@@ -39,9 +38,9 @@ const trueOrFalseQuiz = {
   question5: "Among the letters of the alphabet, only the letter J is not included in the periodic table.",
   answerChoices: ['True', 'False'],
   rightAnswer: 0,
-  }
+  }]
 
-const funnyTriviaQuiz = {
+const funnyTriviaQuiz = [{
   question1: "In Texas, it’s illegal to swear in front of what?",
   answerChoices: ["a corpse", "children", "a horse", "a tree"],
   rightAnswer: 0,
@@ -61,9 +60,9 @@ const funnyTriviaQuiz = {
   question5: "What is the world record for number of hot dogs eaten in one sitting?",
   answerChoices: ['65', '85', '74', '101'],
   rightAnswer: 2
-  }
+  }]
 
-const brandSlogansQuiz = {
+const brandSlogansQuiz = [{
   question1: "What brand does this slogan belong to: What's in your wallet?",
   answerChoices: ['Chase', 'Citi', 'Discover', 'Capital One'],
   rightAnswer: 3,
@@ -83,7 +82,7 @@ const brandSlogansQuiz = {
   question5: "What is the slogan for Adidas", 
   answerChoices: ["Impossible is nothing", "Just do it", "Belong anywhere", "We go the extra mile"],
   rightAnswer: 0
-  }
+  }]
 
 function getpopCultureQuiz() {
   return popCultureQuiz

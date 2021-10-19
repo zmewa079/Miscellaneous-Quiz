@@ -40,13 +40,11 @@ body {
   padding: 10px;
 }
 
-.startBtn {
+.startBtn, .submitBtn {
   background-color: #b5afc6;
   padding: 10px;
 }
 
-.submitBtn {
-  background-color: #b5afc6;
-  padding: 10px;
-  
+.hide {
+  display: none;
 }
