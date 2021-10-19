@@ -3,12 +3,7 @@ body {
 }
 
 /* #quiz-container {
-  border-style: solid;
-  border-radius: 50px;
-  border-width: 10px;
-  height: 80px;
-  padding: 20px;
-  margin: 50px;
+  
 } */
 
 #question-container {
@@ -21,16 +16,6 @@ body {
   margin: 50px;
 }
 
-/* #question2-container {
-  text-align: center;
-  border-style: solid;
-  border-radius: 50px;
-  border-width: 10px;
-  height: 80px;
-  padding: 20px;
-  margin: 50px;
-} */
-
 .quizButtons {
   display: flex;
   gap: 50px;
@@ -40,8 +25,8 @@ body {
 
 #answerchoiceQ1-buttons {
   display: flex;
-  flex-direction: row;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: last baseline;
   gap: 50px;
 }
 
