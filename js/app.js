@@ -48,19 +48,71 @@ function init() {
 function popCultureQuiz() {
   quizContainerEl.classList.remove('hide')
   controlButtonsEl.classList.remove('hide')
+    for (let i = 0; i < popCultureQuizQ.length; i++){
+      let question1 = popCultureQuizQ[0]
+      let question2 = popCultureQuizQ[1]
+      let question3 = popCultureQuizQ[2]
+      let question4 = popCultureQuizQ[3]
+      let question5 = popCultureQuizQ[4]
+      question1El.innerText = question1
+      question2El.innerText = question2
+      question3El.innerText = question3
+      question4El.innerText = question4
+      question5El.innerText = question5
 }
+}
+
 function trueOrFalseQuiz() {
   quizContainerEl.classList.remove('hide')
   controlButtonsEl.classList.remove('hide')
+  for (let i = 0; i < trueOrFalseQuizQ.length; i++){
+    let question1 = trueOrFalseQuizQ[0]
+    let question2 = trueOrFalseQuizQ[1]
+    let question3 = trueOrFalseQuizQ[2]
+    let question4 = trueOrFalseQuizQ[3]
+    let question5 = trueOrFalseQuizQ[4]
+    question1El.innerText = question1
+    question2El.innerText = question2
+    question3El.innerText = question3
+    question4El.innerText = question4
+    question5El.innerText = question5
 }
+}
+
 function funnyTriviaQuiz() {
   quizContainerEl.classList.remove('hide')
   controlButtonsEl.classList.remove('hide')
+  for (let i = 0; i < funnyTriviaQuizQ.length; i++){
+    let question1 = funnyTriviaQuizQ[0]
+    let question2 = funnyTriviaQuizQ[1]
+    let question3 = funnyTriviaQuizQ[2]
+    let question4 = funnyTriviaQuizQ[3]
+    let question5 = funnyTriviaQuizQ[4]
+    question1El.innerText = question1
+    question2El.innerText = question2
+    question3El.innerText = question3
+    question4El.innerText = question4
+    question5El.innerText = question5
 }
+}
+
 function brandSlogansQuiz() {
   quizContainerEl.classList.remove('hide')
   controlButtonsEl.classList.remove('hide')
+  for (let i = 0; i < brandSlogansQuizQ.length; i++){
+    let question1 = brandSlogansQuizQ[0]
+    let question2 = brandSlogansQuizQ[1]
+    let question3 = brandSlogansQuizQ[2]
+    let question4 = brandSlogansQuizQ[3]
+    let question5 = brandSlogansQuizQ[4]
+    question1El.innerText = question1
+    question2El.innerText = question2
+    question3El.innerText = question3
+    question4El.innerText = question4
+    question5El.innerText = question5
 }
+}
+
 function randomQuiz() {
   quizContainerEl.classList.remove('hide')
   controlButtonsEl.classList.remove('hide')

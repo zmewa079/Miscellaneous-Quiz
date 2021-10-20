@@ -32,10 +32,10 @@ const funnyTriviaQuizA =[ ["a corpse", "children", "a horse", "a tree"],
                           ['65', '85', '74', '101'] ]
 
 const brandSlogansQuizQ =["What brand does this slogan belong to: What's in your wallet?",
-                          "What brand does this slogan belong to: Move fast and break things",
+                          "What brand does this slogan belong to: Move fast and break things?",
                           "What is the slogan for Google?",
-                          "What brand does this slogan belong to: Expect more pay less",
-                          "What is the slogan for Adidas"]
+                          "What brand does this slogan belong to: Expect more pay less?",
+                          "What is the slogan for Adidas?"]
 const brandSlogansQuizA = [ ['Chase', 'Citi', 'Discover', 'Capital One'],
                             ["Instagram", 'Snapchat', "Facebook", "Twitter"],
                             ["Be what's next", "Don't be evil", "Think Different", "Go Beyond"],
