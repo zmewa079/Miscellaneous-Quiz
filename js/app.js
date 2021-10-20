@@ -1,12 +1,14 @@
 /*-------------------------------- Constants --------------------------------*/
-import {getpopCultureQuiz, gettrueOrFalseQuiz, getfunnyTriviaQuiz,getbrandSlogansQuiz} from "../data/quizzes.js"
+import {popCultureQuizQ, popCultureQuizA, trueOrFalseQuizQ, trueOrFalseQuizA, funnyTriviaQuizQ,
+  funnyTriviaQuizA, brandSlogansQuizQ, brandSlogansQuizA } from "../data/quizzes.js"
 
 /*--------------------------------- Variables -------------------------------*/
 let trueOrFalse 
 let funnyTrivia 
 let brandSlogans
-let randomQuiz
+let random
 let question
+let questionIdx
 // let popcultureQuiz
 
 /*------------------------ Cached Element References ------------------------*/
@@ -15,19 +17,24 @@ const trueOrFalseQuizBtn = document.querySelector('#trueOrFalse')
 const funnyTriviaQuizBtn = document.querySelector('#funnyTrivia')
 const brandSlogansQuizBtn = document.querySelector('#brandSlogans')
 const randomQuizBtn = document.querySelector('#randomQuiz')
-const startBtnEl = document.querySelector('#start')
-const submitBtnEl = document.querySelector('#submit')
-const controlButtonsEl = document.querySelector('.buttons')
+const controlButtonsEl = document.querySelector('.control-buttons')
 const quizContainerEl = document.querySelector('#quiz-container')
+const questionContainerEl = document.querySelector('#question-container')
+const question1El = document.querySelector('#question1')
+const question2El = document.querySelector('#question2')
+const question3El = document.querySelector('#question3')
+const question4El = document.querySelector('#question4')
+const question5El = document.querySelector('#question5')
+const btnEl = document.querySelector('.btn')
+
 /*----------------------------- Event Listeners -----------------------------*/
 popcultureQuizBtn.addEventListener('click', popCultureQuiz)
 trueOrFalseQuizBtn.addEventListener('click', trueOrFalseQuiz)
 funnyTriviaQuizBtn.addEventListener('click', funnyTriviaQuiz)
 brandSlogansQuizBtn.addEventListener('click', brandSlogansQuiz)
-// // randomQuizBtn.addEventListener('click', handleclick)
+randomQuizBtn.addEventListener('click', randomQuiz)
 // startBtnEl.addEventListener('click', init)
-// submitBtnEl.addEventListener('click', handleClick)
-// controlButtonsEl.addEventListener('click', init)
+controlButtonsEl.addEventListener('click', init)
 
 
 /*-------------------------------- Functions --------------------------------*/
@@ -35,21 +42,29 @@ init ()
 
 function init() {
   quizContainerEl.classList.add('hide')
+  controlButtonsEl.classList.add('hide')
 }
 
 function popCultureQuiz() {
   quizContainerEl.classList.remove('hide')
+  controlButtonsEl.classList.remove('hide')
 }
 function trueOrFalseQuiz() {
-
+  quizContainerEl.classList.remove('hide')
+  controlButtonsEl.classList.remove('hide')
 }
 function funnyTriviaQuiz() {
-
+  quizContainerEl.classList.remove('hide')
+  controlButtonsEl.classList.remove('hide')
 }
 function brandSlogansQuiz() {
-
+  quizContainerEl.classList.remove('hide')
+  controlButtonsEl.classList.remove('hide')
 }
-
+function randomQuiz() {
+  quizContainerEl.classList.remove('hide')
+  controlButtonsEl.classList.remove('hide')
+}
 
 
 
