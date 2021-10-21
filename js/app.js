@@ -8,10 +8,10 @@ let choice0
 let choice1 
 let choice2 
 let choice3 
-let popcultureBool= false
-let truefalseBool = false
-let funnytriviaBool = false
-let brandslogansBool = false
+let popcultureBool
+let truefalseBool
+let funnytriviaBool 
+let brandslogansBool 
 /*------------------------ Cached Element References ------------------------*/
 const popcultureQuizBtn = document.querySelector('#popCulture')
 const trueOrFalseQuizBtn = document.querySelector('#trueOrFalse')
@@ -31,22 +31,7 @@ const choice0El = document.getElementById('choice0')
 const choice1El = document.querySelector('#choice1')
 const choice2El = document.querySelector('#choice2')
 const choice3El = document.querySelector('#choice3')
-const choice4El = document.querySelector('#choice4')
-const choice5El = document.getElementById('choice5')
-const choice6El = document.querySelector('#choice6')
-const choice7El = document.querySelector('#choice7')
-const choice8El = document.querySelector('#choice8')
-const choice9El = document.querySelector('#choice9')
-const choice10El = document.querySelector('#choice10')
-const choice11El = document.querySelector('#choice11')
-const choice12El = document.querySelector('#choice12')
-const choice13El = document.querySelector('#choice13')
-const choice14El = document.querySelector('#choice14')
-const choice15El = document.querySelector('#choice15')
-const choice16El = document.querySelector('#choice16')
-const choice17El = document.querySelector('#choice17')
-const choice18El = document.querySelector('#choice18')
-const choice19El = document.querySelector('#choice19')
+
 const btnEl = document.querySelector('.btn')
 
 /*----------------------------- Event Listeners -----------------------------*/
@@ -103,8 +88,9 @@ function nextBtn() {
   let answer4 
   let question
   
+  
   // Implements the next answer choices
-  if(popcultureBool=== true){
+  if(popcultureBool){
     question = popCultureQuizQ[index]
     question1El.innerText = question
 
@@ -113,9 +99,10 @@ function nextBtn() {
       answer3 = popCultureQuizA[index][2]
       answer4 = popCultureQuizA[index][3]
   }
-  else if(truefalseBool=== true){
+  else if(truefalseBool){
     question = trueOrFalseQuizQ[index]
     question1El.innerText = question
+    
     answer1 = trueOrFalseQuizA[index][0]
     answer2 = trueOrFalseQuizA[index][1]
     answer3 = trueOrFalseQuizA[index][2]
@@ -139,12 +126,12 @@ else if(brandslogansBool=== true){
 }
 
 
-      choice0El.innerText = answer1
-      choice1El.innerText = answer2
-      choice2El.innerText = answer3
-      choice3El.innerText = answer4
+choice0El.innerText = answer1
+choice1El.innerText = answer2
+choice2El.innerText = answer3
+choice3El.innerText = answer4
 
-      index ++
+index ++
 }
 
 
@@ -173,7 +160,7 @@ function popCultureQuiz() {
 function trueOrFalseQuiz() {
   quizContainerEl.classList.remove('hide')
   controlButtonsEl.classList.remove('hide')
-  truefalseBool=== true
+  truefalseBool= true
 
     //display only first question
     let question = trueOrFalseQuizQ[0]
@@ -191,7 +178,7 @@ function trueOrFalseQuiz() {
 function funnyTriviaQuiz() {
   quizContainerEl.classList.remove('hide')
   controlButtonsEl.classList.remove('hide')
-  funnytriviaBool=== true
+  funnytriviaBool= true
     //display only first question
     let question = funnyTriviaQuizQ[0]
     question1El.innerText = question
@@ -208,7 +195,7 @@ function funnyTriviaQuiz() {
 function brandSlogansQuiz() {
   quizContainerEl.classList.remove('hide')
   controlButtonsEl.classList.remove('hide')
-  brandslogansBool=== true
+  brandslogansBool= true
     //display only first question
     let question = brandSlogansQuizQ[0]
     question1El.innerText = question
