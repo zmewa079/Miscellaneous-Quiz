@@ -1,28 +1,17 @@
 /*-------------------------------- Constants --------------------------------*/
 import {popCultureQuizQ, popCultureQuizA, trueOrFalseQuizQ, trueOrFalseQuizA, funnyTriviaQuizQ,
-  funnyTriviaQuizA, brandSlogansQuizQ, brandSlogansQuizA, correctAnswerIdx1, correctAnswerIdx2, correctAnswerIdx3, correctAnswerIdx4 } from "../data/quizzes.js"
+  funnyTriviaQuizA, brandSlogansQuizQ, brandSlogansQuizA, correctAnswer1, correctAnswer2, correctAnswer3, correctAnswer4 } from "../data/quizzes.js"
 
 /*--------------------------------- Variables -------------------------------*/
+let index = 1
 let choice0 
 let choice1 
 let choice2 
 let choice3 
-let choice4 
-let choice5 
-let choice6 
-let choice7 
-let choice8 
-let choice9 
-let choice10 
-let choice11 
-let choice12 
-let choice13 
-let choice14 
-let choice15 
-let choice16 
-let choice17 
-let choice18 
-let choice19 
+let popcultureBool= false
+let truefalseBool = false
+let funnytriviaBool = false
+let brandslogansBool = false
 /*------------------------ Cached Element References ------------------------*/
 const popcultureQuizBtn = document.querySelector('#popCulture')
 const trueOrFalseQuizBtn = document.querySelector('#trueOrFalse')
@@ -31,18 +20,19 @@ const brandSlogansQuizBtn = document.querySelector('#brandSlogans')
 const randomQuizBtn = document.querySelector('#randomQuiz')
 const controlButtonsEl = document.querySelector('.control-buttons')
 const quizContainerEl = document.querySelector('#quiz-container')
+const nextEl = document.querySelector('#next')
 // const questionContainerEl = document.querySelector('#question-container')
-const question1El = document.querySelector('#question1')
-const question2El = document.querySelector('#question2')
-const question3El = document.querySelector('#question3')
-const question4El = document.querySelector('#question4')
-const question5El = document.querySelector('#question5')
-const choice0El = document.querySelector('#choice0')
+const question1El = document.querySelector('#question')
+// const question2El = document.querySelector('#question2')
+// const question3El = document.querySelector('#question3')
+// const question4El = document.querySelector('#question4')
+// const question5El = document.querySelector('#question5')
+const choice0El = document.getElementById('choice0')
 const choice1El = document.querySelector('#choice1')
 const choice2El = document.querySelector('#choice2')
 const choice3El = document.querySelector('#choice3')
 const choice4El = document.querySelector('#choice4')
-const choice5El = document.querySelector('#choice5')
+const choice5El = document.getElementById('choice5')
 const choice6El = document.querySelector('#choice6')
 const choice7El = document.querySelector('#choice7')
 const choice8El = document.querySelector('#choice8')
@@ -65,12 +55,13 @@ trueOrFalseQuizBtn.addEventListener('click', trueOrFalseQuiz)
 funnyTriviaQuizBtn.addEventListener('click', funnyTriviaQuiz)
 brandSlogansQuizBtn.addEventListener('click', brandSlogansQuiz)
 randomQuizBtn.addEventListener('click', randomQuiz)
-// startBtnEl.addEventListener('click', init)
+
 controlButtonsEl.addEventListener('click', init)
-choice0El.addEventListener('click', popRightAnswer)
-choice1El.addEventListener('click', popRightAnswer)
-choice2El.addEventListener('click', popRightAnswer)
-choice3El.addEventListener('click', popRightAnswer)
+nextEl.addEventListener('click', nextBtn)
+choice0El.addEventListener('click', handleAnswer1)
+choice1El.addEventListener('click', handleAnswer2)
+choice2El.addEventListener('click', handleAnswer3)
+choice3El.addEventListener('click', handleAnswer4)
 // choice4El.addEventListener('click', handleClick)
 // choice5El.addEventListener('click', handleClick)
 // choice6El.addEventListener('click', handleClick)
@@ -93,260 +84,142 @@ init ()
 function init() {
   quizContainerEl.classList.add('hide')
   controlButtonsEl.classList.add('hide')
+  popcultureBool = false
+  truefalseBool = false
+  funnytriviaBool = false
+  brandslogansBool = false
 }
+
+function nextBtn() {
+  if(index===4){
+    nextEl.classList.add('hide')
+  }
+//Implements the next question when the next button is clicked 
+
+  
+  let answer1 
+  let answer2 
+  let answer3 
+  let answer4 
+  let question
+  
+  // Implements the next answer choices
+  if(popcultureBool=== true){
+    question = popCultureQuizQ[index]
+    question1El.innerText = question
+
+      answer1 = popCultureQuizA[index][0]
+      answer2 = popCultureQuizA[index][1]
+      answer3 = popCultureQuizA[index][2]
+      answer4 = popCultureQuizA[index][3]
+  }
+  else if(truefalseBool=== true){
+    question = trueOrFalseQuizQ[index]
+    question1El.innerText = question
+    answer1 = trueOrFalseQuizA[index][0]
+    answer2 = trueOrFalseQuizA[index][1]
+    answer3 = trueOrFalseQuizA[index][2]
+    answer4 = trueOrFalseQuizA[index][3]
+}
+else if(funnytriviaBool=== true){
+  question = funnyTriviaQuizQ[index]
+  question1El.innerText = question
+  answer1 = funnyTriviaQuizA[index][0]
+  answer2 = funnyTriviaQuizA[index][1]
+  answer3 = funnyTriviaQuizA[index][2]
+  answer4 = funnyTriviaQuizA[index][3]
+}
+else if(brandslogansBool=== true){
+  question = brandSlogansQuizQ[index]
+  question1El.innerText = question
+  answer1 = brandSlogansQuizA[index][0]
+  answer2 = brandSlogansQuizA[index][1]
+  answer3 = brandSlogansQuizA[index][2]
+  answer4 = brandSlogansQuizA[index][3]
+}
+
+
+      choice0El.innerText = answer1
+      choice1El.innerText = answer2
+      choice2El.innerText = answer3
+      choice3El.innerText = answer4
+
+      index ++
+}
+
+
 
 function popCultureQuiz() {
+  popcultureBool = true
   quizContainerEl.classList.remove('hide')
   controlButtonsEl.classList.remove('hide')
-    for (let i = 0; i < popCultureQuizQ.length; i++){
-      let question1 = popCultureQuizQ[0]
-      let question2 = popCultureQuizQ[1]
-      let question3 = popCultureQuizQ[2]
-      let question4 = popCultureQuizQ[3]
-      let question5 = popCultureQuizQ[4]
-      question1El.innerText = question1
-      question2El.innerText = question2
-      question3El.innerText = question3
-      question4El.innerText = question4
-      question5El.innerText = question5
-    }
-    for(let i = 0; i < popCultureQuizA.length; i++) {
-      for (let j = 0; j <popCultureQuizA[i].length; j++) {
-        // console.log(popCultureQuizA[i][j])
-        choice0 = popCultureQuizA[0][0]
-        choice1 = popCultureQuizA[0][1]
-        choice2= popCultureQuizA[0][2]
-        choice3 = popCultureQuizA[0][3]
-        choice4 = popCultureQuizA[1][0]
-        choice5 = popCultureQuizA[1][1]
-        choice6 = popCultureQuizA[1][2]
-        choice7 = popCultureQuizA[1][3]
-        choice8 = popCultureQuizA[2][0]
-        choice9 = popCultureQuizA[2][1]
-        choice10 = popCultureQuizA[2][2]
-        choice11 = popCultureQuizA[2][3]
-        choice12 = popCultureQuizA[3][0]
-        choice13 = popCultureQuizA[3][1]
-        choice14 = popCultureQuizA[3][2]
-        choice15 = popCultureQuizA[3][3]
-        choice16 = popCultureQuizA[4][0]
-        choice17 = popCultureQuizA[4][1]
-        choice18 = popCultureQuizA[4][2]
-        choice19 = popCultureQuizA[4][3]
-        choice0El.innerText = choice0
-        choice1El.innerText = choice1
-        choice2El.innerText = choice2
-        choice3El.innerText = choice3
-        choice4El.innerText = choice4
-        choice5El.innerText = choice5
-        choice6El.innerText = choice6
-        choice7El.innerText = choice7
-        choice8El.innerText = choice8
-        choice9El.innerText = choice9
-        choice10El.innerText = choice10
-        choice11El.innerText = choice11
-        choice12El.innerText = choice12
-        choice13El.innerText = choice13
-        choice14El.innerText = choice14
-        choice15El.innerText = choice15
-        choice16El.innerText = choice16
-        choice17El.innerText = choice17
-        choice18El.innerText = choice18
-        choice19El.innerText = choice19
-      }
-    }
+  
+  //display only first question
+  let question = popCultureQuizQ[0]
+  question1El.innerText = question
+
+  //display only first answer choices
+
+      choice0El.innerText = popCultureQuizA[0][0]
+      choice1El.innerText = popCultureQuizA[0][1]
+      choice2El.innerText= popCultureQuizA[0][2]
+      choice3El.innerText = popCultureQuizA[0][3]
+
 
 }
+
 
 
 function trueOrFalseQuiz() {
   quizContainerEl.classList.remove('hide')
   controlButtonsEl.classList.remove('hide')
-    for (let i = 0; i < trueOrFalseQuizQ.length; i++) {
-      let question1 = trueOrFalseQuizQ[0]
-      let question2 = trueOrFalseQuizQ[1]
-      let question3 = trueOrFalseQuizQ[2]
-      let question4 = trueOrFalseQuizQ[3]
-      let question5 = trueOrFalseQuizQ[4]
+  truefalseBool=== true
 
-      question1El.innerText = question1
-      question2El.innerText = question2
-      question3El.innerText = question3
-      question4El.innerText = question4
-      question5El.innerText = question5
-    }
-    for(let i = 0; i < trueOrFalseQuizA.length; i++) {
-      for (let j = 0; j <trueOrFalseQuizA[i].length; j++) {
-        // console.log(popCultureQuizA[i][j])
-        choice0 = trueOrFalseQuizA[0][0]
-        choice1 = trueOrFalseQuizA[0][1]
-        choice4 = trueOrFalseQuizA[2][0]
-        choice5 = trueOrFalseQuizA[2][1]
-        choice8 = trueOrFalseQuizA[4][0]
-        choice9 = trueOrFalseQuizA[4][1]
-        choice12 = trueOrFalseQuizA[3][0]
-        choice13 = trueOrFalseQuizA[3][1]
-        choice16 = trueOrFalseQuizA[4][0]
-        choice17 = trueOrFalseQuizA[4][1]
-  //display the answer choices       
-        choice0El.innerText = choice0
-        choice1El.innerText = choice1       
-        choice4El.innerText = choice4
-        choice5El.innerText = choice5        
-        choice8El.innerText = choice8
-        choice9El.innerText = choice9        
-        choice12El.innerText = choice12
-        choice13El.innerText = choice13        
-        choice16El.innerText = choice16
-        choice17El.innerText = choice17
-  //hide the two extra buttons that will not have a choice to display
-        choice2El.classList.add('hide')
-        choice3El.classList.add('hide')
-        choice6El.classList.add('hide')
-        choice7El.classList.add('hide')
-        choice10El.classList.add('hide')
-        choice11El.classList.add('hide')
-        choice14El.classList.add('hide')
-        choice15El.classList.add('hide')
-        choice18El.classList.add('hide')
-        choice19El.classList.add('hide')
+    //display only first question
+    let question = trueOrFalseQuizQ[0]
+    question1El.innerText = question
+  
+    //display only first answer choices
+  
+        choice0El.innerText = trueOrFalseQuizA[0][0]
+        choice1El.innerText = trueOrFalseQuizA[0][1]
+        choice2El.innerText= trueOrFalseQuizA[0][2]
+        choice3El.innerText = trueOrFalseQuizA[0][3]
+
       }
-    }
-}
-
+  
 function funnyTriviaQuiz() {
   quizContainerEl.classList.remove('hide')
   controlButtonsEl.classList.remove('hide')
-    for (let i = 0; i < funnyTriviaQuizQ.length; i++){
-      let question1 = funnyTriviaQuizQ[0]
-      let question2 = funnyTriviaQuizQ[1]
-      let question3 = funnyTriviaQuizQ[2]
-      let question4 = funnyTriviaQuizQ[3]
-      let question5 = funnyTriviaQuizQ[4]
-      question1El.innerText = question1
-      question2El.innerText = question2
-      question3El.innerText = question3
-      question4El.innerText = question4
-      question5El.innerText = question5
-    }
-    for(let i = 0; i < funnyTriviaQuizA.length; i++) {
-      for (let j = 0; j <funnyTriviaQuizA[i].length; j++) {
-        // console.log(popCultureQuizA[i][j])
-        choice0 = funnyTriviaQuizA[0][0]
-        choice1 = funnyTriviaQuizA[0][1]
-        choice2= funnyTriviaQuizA[0][2]
-        choice3 = funnyTriviaQuizA[0][3]
-        choice4 = funnyTriviaQuizA[1][0]
-        choice5 = funnyTriviaQuizA[1][1]
-        choice6 = funnyTriviaQuizA[1][2]
-        choice7 = funnyTriviaQuizA[1][3]
-        choice8 = funnyTriviaQuizA[2][0]
-        choice9 = funnyTriviaQuizA[2][1]
-        choice10 = funnyTriviaQuizA[2][2]
-        choice11 = funnyTriviaQuizA[2][3]
-        choice12 = funnyTriviaQuizA[3][0]
-        choice13 = funnyTriviaQuizA[3][1]
-        choice14 = funnyTriviaQuizA[3][2]
-        choice15 = funnyTriviaQuizA[3][3]
-        choice16 = funnyTriviaQuizA[4][0]
-        choice17 = funnyTriviaQuizA[4][1]
-        choice18 = funnyTriviaQuizA[4][2]
-        choice19 = funnyTriviaQuizA[4][3]
-        choice0El.innerText = choice0
-        choice1El.innerText = choice1
-        choice2El.innerText = choice2
-        choice3El.innerText = choice3
-        choice4El.innerText = choice4
-        choice5El.innerText = choice5
-        choice6El.innerText = choice6
-        choice7El.innerText = choice7
-        choice8El.innerText = choice8
-        choice9El.innerText = choice9
-        choice10El.innerText = choice10
-        choice11El.innerText = choice11
-        choice12El.innerText = choice12
-        choice13El.innerText = choice13
-        choice14El.innerText = choice14
-        choice15El.innerText = choice15
-        choice16El.innerText = choice16
-        choice17El.innerText = choice17
-        choice18El.innerText = choice18
-        choice19El.innerText = choice19
+  funnytriviaBool=== true
+    //display only first question
+    let question = funnyTriviaQuizQ[0]
+    question1El.innerText = question
+  
+    //display only first answer choices
+  
+        choice0El.innerText = funnyTriviaQuizA[0][0]
+        choice1El.innerText = funnyTriviaQuizA[0][1]
+        choice2El.innerText= funnyTriviaQuizA[0][2]
+        choice3El.innerText = funnyTriviaQuizA[0][3]
 
-        choice2El.classList.remove('hide')
-        choice3El.classList.remove('hide')
-        choice6El.classList.remove('hide')
-        choice7El.classList.remove('hide')
-        choice10El.classList.remove('hide')
-        choice11El.classList.remove('hide')
-        choice14El.classList.remove('hide')
-        choice15El.classList.remove('hide')
-        choice18El.classList.remove('hide')
-        choice19El.classList.remove('hide')
-      }
-    }
 }
 
 function brandSlogansQuiz() {
   quizContainerEl.classList.remove('hide')
   controlButtonsEl.classList.remove('hide')
-    for (let i = 0; i < brandSlogansQuizQ.length; i++){
-      let question1 = brandSlogansQuizQ[0]
-      let question2 = brandSlogansQuizQ[1]
-      let question3 = brandSlogansQuizQ[2]
-      let question4 = brandSlogansQuizQ[3]
-      let question5 = brandSlogansQuizQ[4]
-      question1El.innerText = question1
-      question2El.innerText = question2
-      question3El.innerText = question3
-      question4El.innerText = question4
-      question5El.innerText = question5
-    }
-    for(let i = 0; i < brandSlogansQuizA.length; i++) {
-      for (let j = 0; j <brandSlogansQuizA[i].length; j++) {
-        // console.log(popCultureQuizA[i][j])
-        choice0 = brandSlogansQuizA[0][0]
-        choice1 = brandSlogansQuizA[0][1]
-        choice2 = brandSlogansQuizA[0][2]
-        choice3 = brandSlogansQuizA[0][3]
-        choice4 = brandSlogansQuizA[1][0]
-        choice5 = brandSlogansQuizA[1][1]
-        choice6 = brandSlogansQuizA[1][2]
-        choice7 = brandSlogansQuizA[1][3]
-        choice8 = brandSlogansQuizA[2][0]
-        choice9 = brandSlogansQuizA[2][1]
-        choice10 = brandSlogansQuizA[2][2]
-        choice11 = brandSlogansQuizA[2][3]
-        choice12 = brandSlogansQuizA[3][0]
-        choice13 = brandSlogansQuizA[3][1]
-        choice14 = brandSlogansQuizA[3][2]
-        choice15 = brandSlogansQuizA[3][3]
-        choice16 = brandSlogansQuizA[4][0]
-        choice17 = brandSlogansQuizA[4][1]
-        choice18 = brandSlogansQuizA[4][2]
-        choice19 = brandSlogansQuizA[4][3]
-        choice0El.innerText = choice0
-        choice1El.innerText = choice1
-        choice2El.innerText = choice2
-        choice3El.innerText = choice3
-        choice4El.innerText = choice4
-        choice5El.innerText = choice5
-        choice6El.innerText = choice6
-        choice7El.innerText = choice7
-        choice8El.innerText = choice8
-        choice9El.innerText = choice9
-        choice10El.innerText = choice10
-        choice11El.innerText = choice11
-        choice12El.innerText = choice12
-        choice13El.innerText = choice13
-        choice14El.innerText = choice14
-        choice15El.innerText = choice15
-        choice16El.innerText = choice16
-        choice17El.innerText = choice17
-        choice18El.innerText = choice18
-        choice19El.innerText = choice19
-      }
-    }
+  brandslogansBool=== true
+    //display only first question
+    let question = brandSlogansQuizQ[0]
+    question1El.innerText = question
+  
+    //display only first answer choices
+  
+        choice0El.innerText = brandSlogansQuizA[0][0]
+        choice1El.innerText = brandSlogansQuizA[0][1]
+        choice2El.innerText= brandSlogansQuizA[0][2]
+        choice3El.innerText = brandSlogansQuizA[0][3]
+
 }
 
 
@@ -354,72 +227,107 @@ function brandSlogansQuiz() {
 function randomQuiz() {
   quizContainerEl.classList.remove('hide')
   controlButtonsEl.classList.remove('hide')
-  let randomQuizArray = [popCultureQuiz(), trueOrFalseQuiz(), funnyTriviaQuiz(), brandSlogansQuiz()]
-  let random = randomQuizArray[Math.floor(Math.random()*randomQuizArray.length)]
-  for (let i = 0; i < randomQuizArray.length; i++){
-
-    let question1 = random[0]
-    let question2 = random[1]
-    let question3 = random[2]
-    let question4 = random[3]
-    let question5 = random[4]
-    question1El.innerText = question1
-    question2El.innerText = question2
-    question3El.innerText = question3
-    question4El.innerText = question4
-    question5El.innerText = question5
+ 
+    // //display only first question
+    // let question = popCultureQuizQ[0]
+    // question1El.innerText = question
+  
+    // //display only first answer choices
+  
+    //     choice0El.innerText = popCultureQuizA[0][0]
+    //     choice1El.innerText = popCultureQuizA[0][1]
+    //     choice2El.innerText= popCultureQuizA[0][2]
+    //     choice3El.innerText = popCultureQuizA[0][3]
 }
 
+
+
+
+
+
+
+
+function handleAnswer1(){
+  //checks if it is right
+
+ if (choice1El.innerText=== correctAnswer1[index]) {
+   choice1El.style.backgroundcolor = 'green'
+ } 
+ else{
+   choice1El.style.backgroundcolor = 'red'
+ }
+
 }
 
-function popRightAnswer() {
-  for(let i = 0; i < popCultureQuizA.length; i++) {
-    for (let j = 0; j <popCultureQuizA[i].length; j++) {
-      if (choice2 === popCultureQuizA[0][2]) {
-        choice2El.style.backgroundcolor = 'green'
-      } else if(choice0 === popCultureQuizA[0][0]) {
-        choice0El.style.color = 'red'
-      } else if (choice1 === popCultureQuizA[0][1]) {
-        choice1El.style.color = 'red'
-      } else if (choice3 === popCultureQuizA[0][3]) {
-        choice3El.style.color = 'red'
-      }
-    }
-  }
-// let correctAns1 = popCultureQuizA.indexOf('eight')
-//   if (choice2El === correctAns1) {
-//     choice2El.style.color = 'green'
-//   } else {
-//     choice0El.style.color = 'red'
-//     choice1El.style.color = 'red'
-//     choice3El.style.color = 'red'
+function handleAnswer2(){
+ //checks if it is right
+
+ if (choice2El.innerText=== correctAnswer1[index]) {
+   choice2El.style.backgroundcolor = 'green'
+ } 
+ else{
+   choice2El.style.backgroundcolor = 'red'
+ }
+
+}
+
+function handleAnswer3(){
+ //checks if it is right
+
+ if (choice3El.innerText=== correctAnswer1[index]) {
+   choice3El.style.backgroundcolor = 'green'
+ } 
+ else{
+   choice3El.style.backgroundcolor = 'red'
+ }
+
+}
+
+function handleAnswer4(){
+ //checks if it is right
+
+ if (choice4El.innerText=== correctAnswer1[index]) {
+   choice4El.style.backgroundcolor = 'green'
+ } 
+ else{
+   choice4El.style.backgroundcolor = 'red'
+ }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+// function popRightAnswerQ1() {
+//   for(let i = 0; i < popCultureQuizA.length; i++) {
+//     for (let j = 0; j <popCultureQuizA[i].length; j++) {
+//       if (choice2 === correctAnswer1[index]) {
+//         choice2El.style.color = 'green'
+//         choice0El.style.color = 'red'
+//         choice1El.style.color = 'red'
+//         choice3El.style.color = 'red'
+//       } 
+//     }
 //   }
-  // if(choice2El === popCultureQuizA.indexOf[2]) {
-  //   choice2El.style.color = 'green'
-  // } else {
-  //   choice0El.style.color = 'red'
-  //   choice1El.style.color = 'red'
-  //   choice3El.style.color = 'red'
-  // }
-  // if(choice25El === popCultureQuizA.indexOf[2]) {
-  //   choice5El.style.color = 'green'
-  // } else {
-  //   choice0El.style.color = 'red'
-  //   choice1El.style.color = 'red'
-  //   choice3El.style.color = 'red'
-  // }
-  // for (let i = 0; i < correctAnswerIdx1.length; i++) {
-  // }
-  // for (let i = 0; i < correctAnswerIdx1.length; i++) {
-  //   for (let j = 0; j < correctAnswerIdx1[i].length; j++) {
-  //     console.log(correctAnswerIdx1[i][0])
-  //     if (choice2El === correctAnswerIdx1.indexOf[0][0] ) {
-  //       choice2El.style.color = 'green'
-  //     } else {
-  //       choice0El.style.color = 'red'
-  //       choice1El.style.color = 'red'
-  //       choice3El.style.color = 'red'
-  //     }
-  //   }
-  // }
-}
+// }
+// function popRightAnswerQ2() {
+//   for(let i = 0; i < popCultureQuizA.length; i++) {
+//     for (let j = 0; j <popCultureQuizA[i].length; j++) {
+//       if (choice5 === correctAnswer1[1]) {
+//         choice5El.style.color = 'green'
+//         choice4El.style.color = 'red'
+//         choice6El.style.color = 'red'
+//         choice7El.style.color = 'red'
+//       } 
+//     }
+//   }
+// }
+
+  

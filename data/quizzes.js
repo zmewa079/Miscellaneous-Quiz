@@ -1,14 +1,14 @@
 const popCultureQuizQ = ["How many Harry Potter films have been made?",
-                      "What day is Star Wars day?",
-                      "Who was the main character in Lord of the Rings?",
-                      "All of these are songs by The Beatles except: ?",
-                      "In the iconic titanic meme, Rose says: It's been blank years. What is the blank?"]
+                        "What day is Star Wars day?",
+                        "Who was the main character in Lord of the Rings?",
+                        "All of these are songs by The Beatles except: ?",
+                        "In the iconic titanic meme, Rose says: It's been blank years. What is the blank?"]
 const popCultureQuizA =[['seven', 'nine', 'eight', 'six'],
                         ['October 3', 'May 4', 'January 9', 'July 4'],
                         ['Gandalf', 'Frodo', 'Smeagol', 'Bilbo Baggins'],
                         ['Hey Jude', 'Let it Be', "Don't stop me now", 'Hello, Goodbye'],
                         ['89', '47', '74', '84'] ]  
-const correctAnswerIdx1 = [[2], [1], [1], [2], [3]]
+const correctAnswer1 = ['eight', 'May 4', 'Frodo', "Don't stop me now", '84']
 
 const trueOrFalseQuizQ = ['In Scotland, the unicorn is their national animal.',
                         'The Great Wall of China is visibe from space', 
@@ -20,7 +20,7 @@ let trueOrFalseQuizA = [['True', 'False'],
                         ['True', 'False'],
                         ['True', 'False'],
                         ['True', 'False'] ]
-const correctAnswerIdx2 = [[0], [1], [0], [1], [0]]                        
+const correctAnswer2 = [[0], [1], [0], [1], [0]]                        
 
 const funnyTriviaQuizQ =['In Texas, it’s illegal to swear in front of what?',
                         'What was the first fruit that was eaten on the moon?',
@@ -32,7 +32,7 @@ const funnyTriviaQuizA =[ ["a corpse", "children", "a horse", "a tree"],
                           ['heights', 'spiders', 'bees', 'clowns'],
                           ["a rooster", "a rabbit", "a fish", "a cat"],
                           ['Ice Cream', 'Pie', 'Cake', 'Bagels'] ]
-const correctAnswerIdx3 = [[0], [2], [3], [1], [0]] 
+const correctAnswer3 = [[0], [2], [3], [1], [0]] 
 
 const brandSlogansQuizQ =["What brand does this slogan belong to: What's in your wallet?",
                           "What brand does this slogan belong to: Move fast and break things?",
@@ -44,7 +44,7 @@ const brandSlogansQuizA = [ ['Chase', 'Citi', 'Discover', 'Capital One'],
                             ["Be what's next", "Don't be evil", "Think Different", "Go Beyond"],
                             ['Walmart', 'Target', 'Walgreens', 'Trader Joes'],
                             ["Impossible is nothing", "Just do it", "Belong anywhere", "We go the extra mile"] ]
-const correctAnswerIdx4 = [[3], [2], [1], [1], [0]]
+const correctAnswer4 = [[3], [2], [1], [1], [0]]
 
 export {
   popCultureQuizQ,
@@ -55,8 +55,16 @@ export {
   funnyTriviaQuizA,
   brandSlogansQuizQ,
   brandSlogansQuizA,
-  correctAnswerIdx1, 
-  correctAnswerIdx2, 
-  correctAnswerIdx3, 
-  correctAnswerIdx4
+  correctAnswer1, 
+  correctAnswer2, 
+  correctAnswer3, 
+  correctAnswer4
 }
+
+// let popCultureQuiz = [{
+//   question1: "How many Harry Potter films have been made?",
+//   answer: [['seven', 'nine', 'eight', 'six']],
+
+//   question2: "What day is Star Wars day?",
+//   answer:[['October 3', 'May 4', 'January 9', 'July 4']]
+// }]

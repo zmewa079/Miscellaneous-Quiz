@@ -11,9 +11,16 @@ body {
   border-style: solid;
   border-radius: 50px;
   border-width: 10px;
-  height: 80px;
+  height: 100px;
   padding: 20px;
   margin: 50px;
+}
+
+
+.nextBtn {
+  margin-top: 10px;
+  background-color: #b5afc6;
+  padding: 3px;
 }
 
 .quizButtons {
