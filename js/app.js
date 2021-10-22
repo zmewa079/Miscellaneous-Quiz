@@ -22,21 +22,27 @@ let score = 0
 
 
 /*------------------------ Cached Element References ------------------------*/
+//reset button
 const resetBtn = document.querySelector('#reset')
+//quiz topic buttons
 const popcultureQuizBtn = document.querySelector('#popCulture')
 const trueOrFalseQuizBtn = document.querySelector('#trueOrFalse')
 const funnyTriviaQuizBtn = document.querySelector('#funnyTrivia')
 const brandSlogansQuizBtn = document.querySelector('#brandSlogans')
+//holds the question and answer choices
 const quizContainerEl = document.querySelector('#quiz-container')
+//next button
 const nextEl = document.querySelector('#next')
+//question and answer elements
 const question1El = document.querySelector('#question')
 const choice0El = document.getElementById('choice0')
 const choice1El = document.querySelector('#choice1')
 const choice2El = document.querySelector('#choice2')
 const choice3El = document.querySelector('#choice3')
+//individual button element
 const btnEl = document.querySelector('.btn')
+//timer countdown element
 let countdownEl = document.getElementById('countdown')
-let pointsEl = document.getElementById('points')
 const secondTime = document.getElementById('secondTime')
 
 /*----------------------------- Event Listeners -----------------------------*/
@@ -79,6 +85,7 @@ function init() {
   brandSlogansQuizBtn.classList.remove('hide')
   secondTime.classList.add('hide')
   countdownEl.classList.add('hide')
+  nextEl.classList.remove('hide')
 }
 
 
@@ -324,7 +331,7 @@ function handleAnswer1() {
       secondTime.innerText = `You finished the quiz! You answered in ${attempts} attempts and in ${5-stopClock} seconds. Your final score is ${score} points!`
       }
       else{
-        secondTime.innerText = `You answered in ${attempts} attempts and in ${5-stopClock} seconds. You scored ${(stopClock*50)-(5*attempts)} points!`
+        secondTime.innerText = `You answered in ${attempts} attempts and in ${5-stopClock} seconds. You scored ${(stopClock*50)-(5*(attempts-1))} points!`
       }
     secondTime.classList.remove('hide')
     // clearInterval(timer)
@@ -348,7 +355,7 @@ function handleAnswer2(){
       secondTime.innerText = `You finished the quiz! You answered in ${attempts} attempts and in ${5-stopClock} seconds. Your final score is ${score} points!`
       }
       else{
-        secondTime.innerText = `You answered in ${attempts} attempts and in ${5-stopClock} seconds. You scored ${(stopClock*50)-(5*attempts)} points!`
+        secondTime.innerText = `You answered in ${attempts} attempts and in ${5-stopClock} seconds. You scored ${(stopClock*50)-(5*(attempts-1))} points!`
       }
     secondTime.classList.remove('hide')
     // clearInterval(timer)
@@ -371,7 +378,7 @@ function handleAnswer3(){
     secondTime.innerText = `You finished the quiz! You answered in ${attempts} attempts and in ${5-stopClock} seconds. Your final score is ${score} points!`
     }
     else{
-      secondTime.innerText = `You answered in ${attempts} attempts and in ${5-stopClock} seconds. You scored ${(stopClock*50)-(5*attempts)} points!`
+      secondTime.innerText = `You answered in ${attempts} attempts and in ${5-stopClock} seconds. You scored ${(stopClock*50)-(5*(attempts-1))} points!`
     }
 
     secondTime.classList.remove('hide')
@@ -394,7 +401,7 @@ function handleAnswer4(){
       secondTime.innerText = `You finished the quiz! You answered in ${attempts} attempts and in ${5-stopClock} seconds. Your final score is ${score} points!`
       }
       else{
-        secondTime.innerText = `You answered in ${attempts} attempts and in ${5-stopClock} seconds. You scored ${(stopClock*50)-(5*attempts)} points!`
+        secondTime.innerText = `You answered in ${attempts} attempts and in ${5-stopClock} seconds. You scored ${(stopClock*50)-(5*(attempts-1))} points!`
       }
     secondTime.classList.remove('hide')
     // clearInterval(timer)
