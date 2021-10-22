@@ -14,15 +14,19 @@ let truefalseBool
 let funnytriviaBool 
 let brandslogansBool 
 let answered
-let timeLeft = 10;
+let timeLeft
+let stopClock
+let attempts = 1
+let score = 0
+
+
+
 /*------------------------ Cached Element References ------------------------*/
 const resetBtn = document.querySelector('#reset')
 const popcultureQuizBtn = document.querySelector('#popCulture')
 const trueOrFalseQuizBtn = document.querySelector('#trueOrFalse')
 const funnyTriviaQuizBtn = document.querySelector('#funnyTrivia')
 const brandSlogansQuizBtn = document.querySelector('#brandSlogans')
-// const randomQuizBtn = document.querySelector('#randomQuiz')
-const controlButtonsEl = document.querySelector('.control-buttons')
 const quizContainerEl = document.querySelector('#quiz-container')
 const nextEl = document.querySelector('#next')
 const question1El = document.querySelector('#question')
@@ -32,15 +36,15 @@ const choice2El = document.querySelector('#choice2')
 const choice3El = document.querySelector('#choice3')
 const btnEl = document.querySelector('.btn')
 let countdownEl = document.getElementById('countdown')
+let pointsEl = document.getElementById('points')
+const secondTime = document.getElementById('secondTime')
 
 /*----------------------------- Event Listeners -----------------------------*/
 popcultureQuizBtn.addEventListener('click', popCultureQuiz)
 trueOrFalseQuizBtn.addEventListener('click', trueOrFalseQuiz)
 funnyTriviaQuizBtn.addEventListener('click', funnyTriviaQuiz)
 brandSlogansQuizBtn.addEventListener('click', brandSlogansQuiz)
-// randomQuizBtn.addEventListener('click', randomQuiz)
 resetBtn.addEventListener('click', init)
-controlButtonsEl.addEventListener('click', init)
 nextEl.addEventListener('click', nextBtn)
 choice0El.addEventListener('click', handleAnswer1)
 choice1El.addEventListener('click', handleAnswer2)
@@ -51,7 +55,6 @@ init ()
 
 function init() {
   quizContainerEl.classList.add('hide')
-  controlButtonsEl.classList.add('hide')
   popcultureBool = false
   truefalseBool = false
   funnytriviaBool = false
@@ -61,6 +64,9 @@ function init() {
   choice2El.style.color = 'black'
   choice3El.style.color = 'black'
   answered = false
+  attempts = 1
+  index = 1
+
 
   document.body.style.backgroundColor = '#877491'
 
@@ -71,9 +77,25 @@ function init() {
   trueOrFalseQuizBtn.classList.remove('hide')
   funnyTriviaQuizBtn.classList.remove('hide')
   brandSlogansQuizBtn.classList.remove('hide')
+  secondTime.classList.add('hide')
+  countdownEl.classList.add('hide')
 }
 
+
+
 function nextBtn() {
+  attempts = 1
+  stopClock = 0
+  countdownEl.classList.remove('hide')
+  secondTime.classList.add('hide')
+  timeLeft = 5;
+  let timer = setInterval(function() {
+    countdownEl.innerText = timeLeft 
+    timeLeft -= 1;
+      if (answered || timeLeft < 0) {
+      clearInterval(timer)
+    }
+  }, 1000)
 
   choice0El.style.color = 'black'
   choice1El.style.color = 'black'
@@ -111,7 +133,7 @@ function nextBtn() {
     answer3 = trueOrFalseQuizA[index][2]
     answer4 = trueOrFalseQuizA[index][3]
   }
-    else if(funnytriviaBool=== true){
+    else if(funnytriviaBool){
     question = funnyTriviaQuizQ[index]
     question1El.innerText = question
 
@@ -120,7 +142,7 @@ function nextBtn() {
     answer3 = funnyTriviaQuizA[index][2]
     answer4 = funnyTriviaQuizA[index][3]
   }
-    else if(brandslogansBool=== true){
+    else if(brandslogansBool){
     question = brandSlogansQuizQ[index]
     question1El.innerText = question
     answer1 = brandSlogansQuizA[index][0]
@@ -137,11 +159,22 @@ function nextBtn() {
 }
 
 function popCultureQuiz() {
+
+  timeLeft = 5;
+  let timer = setInterval(function() {
+    countdownEl.innerText = timeLeft 
+    timeLeft -= 1;
+      if (answered || timeLeft < 0) {
+      clearInterval(timer)
+    }
+  }, 1000)
+
+
   document.body.style.backgroundColor = '#8c778f' 
   topicNum = 0
   popcultureBool = true
   quizContainerEl.classList.remove('hide')
-  controlButtonsEl.classList.remove('hide')
+  
   
   //display only first question
   let question = popCultureQuizQ[0]
@@ -159,20 +192,26 @@ function popCultureQuiz() {
   funnyTriviaQuizBtn.classList.add('hide')
   brandSlogansQuizBtn.classList.add('hide')
 
-  let timer = setInterval(function() {
-    countdownEl.textContent = timeLeft 
-    timeLeft -= 1;
-      if (timeLeft < 0) {
-      countdownEl.textContent = 'Times Up!!'
-    }
-  }, 1000)
+  
 }
 
 function trueOrFalseQuiz() {
+
+  timeLeft = 5;
+  let timer = setInterval(function() {
+    countdownEl.innerText = timeLeft 
+    timeLeft -= 1;
+      if (answered || timeLeft < 0) {
+      clearInterval(timer)
+    }
+  }, 1000)
+
+
+
   document.body.style.backgroundColor = '#736b85'
   topicNum = 1
   quizContainerEl.classList.remove('hide')
-  controlButtonsEl.classList.remove('hide')
+  
   truefalseBool= true
 
   //display only first question
@@ -196,20 +235,25 @@ function trueOrFalseQuiz() {
   funnyTriviaQuizBtn.classList.add('hide')
   brandSlogansQuizBtn.classList.add('hide')
 
-  let timer = setInterval(function() {
-    countdownEl.textContent = timeLeft 
-    timeLeft -= 1;
-      if (timeLeft < 0) {
-      countdownEl.textContent = 'Times Up!!'
-    }
-  }, 1000)
+
 }
   
 function funnyTriviaQuiz() {
+
+  timeLeft = 5;
+  let timer = setInterval(function() {
+    countdownEl.innerText = timeLeft 
+    timeLeft -= 1;
+      if (answered || timeLeft < 0) {
+    
+      clearInterval(timer)
+    }
+  }, 1000)
+
+
   document.body.style.backgroundColor = '#725875'
   topicNum = 2
   quizContainerEl.classList.remove('hide')
-  controlButtonsEl.classList.remove('hide')
   funnytriviaBool= true
     
   //display only first question
@@ -229,20 +273,23 @@ function funnyTriviaQuiz() {
   funnyTriviaQuizBtn.classList.add('hide')
   brandSlogansQuizBtn.classList.add('hide')
 
-  let timer = setInterval(function() {
-    countdownEl.textContent = timeLeft 
-    timeLeft -= 1;
-      if (timeLeft < 0) {
-      countdownEl.textContent = 'Times Up!!'
-    }
-  }, 1000)
+
 }
 
 function brandSlogansQuiz() {
+  timeLeft = 5;
+  let timer = setInterval(function() {
+    countdownEl.innerText = timeLeft 
+    timeLeft -= 1;
+      if (timeLeft < 0) {
+      clearInterval(timer)
+    }
+  }, 1000)
+
+
   document.body.style.backgroundColor = '#83748f'
   topicNum = 3
   quizContainerEl.classList.remove('hide')
-  controlButtonsEl.classList.remove('hide')
   brandslogansBool= true
     
   //display only first question
@@ -262,13 +309,7 @@ function brandSlogansQuiz() {
   funnyTriviaQuizBtn.classList.add('hide')
   brandSlogansQuizBtn.classList.add('hide')
 
-  let timer = setInterval(function() {
-    countdownEl.textContent = timeLeft 
-    timeLeft -= 1;
-      if (timeLeft < 0) {
-      countdownEl.textContent = 'Times Up!!'
-    }
-  }, 1000)
+
 }
 
 function handleAnswer1() {
@@ -276,8 +317,22 @@ function handleAnswer1() {
   if (choice0El.innerText=== (correctAnswer1[topicNum][index-1])) {
     choice0El.style.color = 'green'
     answered = true
+    stopClock = timeLeft
+    countdownEl.classList.add('hide')
+    score = score + ((stopClock*50)-(25*attempts))
+    if (index===5){
+      secondTime.innerText = `You finished the quiz! You answered in ${attempts} attempts and in ${5-stopClock} seconds. Your final score is ${score} points!`
+      }
+      else{
+        secondTime.innerText = `You answered in ${attempts} attempts and in ${5-stopClock} seconds. You scored ${(stopClock*50)-(5*attempts)} points!`
+      }
+    secondTime.classList.remove('hide')
+    // clearInterval(timer)
+
   } else if (answered === false) {
     choice0El.style.color = 'red'
+    attempts++
+
   }
 }
 
@@ -286,8 +341,20 @@ function handleAnswer2(){
   if (choice1El.innerText=== (correctAnswer1[topicNum][index-1])) {
     choice1El.style.color = 'green'
     answered = true
+    stopClock = timeLeft
+    countdownEl.classList.add('hide')
+    score = score + ((stopClock*50)-(25*attempts))
+    if (index===5){
+      secondTime.innerText = `You finished the quiz! You answered in ${attempts} attempts and in ${5-stopClock} seconds. Your final score is ${score} points!`
+      }
+      else{
+        secondTime.innerText = `You answered in ${attempts} attempts and in ${5-stopClock} seconds. You scored ${(stopClock*50)-(5*attempts)} points!`
+      }
+    secondTime.classList.remove('hide')
+    // clearInterval(timer)
   } else if (answered === false) {
   choice1El.style.color = 'red'
+  attempts++
   }
 }
 
@@ -296,8 +363,22 @@ function handleAnswer3(){
   if (choice2El.innerText=== (correctAnswer1[topicNum][index-1])) {
     choice2El.style.color = 'green'
     answered = true
+    stopClock = timeLeft
+    countdownEl.classList.add('hide')
+    score = score + ((stopClock*50)-(25*attempts))
+
+    if (index===5){
+    secondTime.innerText = `You finished the quiz! You answered in ${attempts} attempts and in ${5-stopClock} seconds. Your final score is ${score} points!`
+    }
+    else{
+      secondTime.innerText = `You answered in ${attempts} attempts and in ${5-stopClock} seconds. You scored ${(stopClock*50)-(5*attempts)} points!`
+    }
+
+    secondTime.classList.remove('hide')
+    // clearInterval(timer)
     } else if (answered === false) {
     choice2El.style.color = 'red'
+    attempts++
   }
 }
 
@@ -306,43 +387,19 @@ function handleAnswer4(){
   if (choice3El.innerText=== (correctAnswer1[topicNum][index-1])) {
     choice3El.style.color = 'green'
     answered = true
+    stopClock = timeLeft
+    countdownEl.classList.add('hide')
+    score = score + ((stopClock*50)-(25*attempts))
+    if (index===5){
+      secondTime.innerText = `You finished the quiz! You answered in ${attempts} attempts and in ${5-stopClock} seconds. Your final score is ${score} points!`
+      }
+      else{
+        secondTime.innerText = `You answered in ${attempts} attempts and in ${5-stopClock} seconds. You scored ${(stopClock*50)-(5*attempts)} points!`
+      }
+    secondTime.classList.remove('hide')
+    // clearInterval(timer)
   } else if (answered === false) {
   choice3El.style.color = 'red'
+  attempts++
   }
 }
-
-
-
-
-
-
-
-
-
-
-// function popRightAnswerQ1() {
-//   for(let i = 0; i < popCultureQuizA.length; i++) {
-//     for (let j = 0; j <popCultureQuizA[i].length; j++) {
-//       if (choice2 === correctAnswer1[index]) {
-//         choice2El.style.color = 'green'
-//         choice0El.style.color = 'red'
-//         choice1El.style.color = 'red'
-//         choice3El.style.color = 'red'
-//       } 
-//     }
-//   }
-// }
-// function popRightAnswerQ2() {
-//   for(let i = 0; i < popCultureQuizA.length; i++) {
-//     for (let j = 0; j <popCultureQuizA[i].length; j++) {
-//       if (choice5 === correctAnswer1[1]) {
-//         choice5El.style.color = 'green'
-//         choice4El.style.color = 'red'
-//         choice6El.style.color = 'red'
-//         choice7El.style.color = 'red'
-//       } 
-//     }
-//   }
-// }
-
-  

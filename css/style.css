@@ -20,16 +20,17 @@ h2 {
   padding: 20px;
   margin-left: 150px;
   margin-right: 150px;
-  
-  
+  margin-top: -120px;
 }
 
 img {
   display: grid;
   grid-column-start: 2;
   grid-column-end: five;
-  margin: auto;
-  height: 100px;
+  margin-left: auto;
+  margin-right: auto;
+  height: 100px; 
+  margin-top: 100px;
 }
 
 
@@ -38,13 +39,14 @@ img {
   margin-top: 10px;
   background-color: #b5afc6;
   padding: 3px;
+  border-radius: 20px;
 }
 
 .quizButtons {
   display: flex;
   gap: 50px;
   justify-content: center;
-  margin-top: 200px; 
+  margin-top: -60px; 
 }
 
 .control-buttons {
@@ -63,22 +65,31 @@ img {
 .btn {
   background-color: #b5afc6;
   padding: 10px;
+  border-radius: 20px;
 }
 
-.startBtn, .submitBtn, .retakeBtn {
+.resetBtn {
   background-color: #b5afc6;
   padding: 10px;
+  border-radius: 20px;
 }
 
 #countdown {
   text-align: center;
+	font-style: italic;
   background-color: #9f8ea8;
-  padding: 10px;
-  margin-right: 200px;
-  margin-left: 200px;
-
+  margin-bottom: 200px;
+  margin-top: -150px;
 }
 
 .hide {
   display: none;
+}
+
+#secondTime{
+  text-align: center;
+	font-style: italic;
+  background-color: #9f8ea8;
+  margin-bottom: 200px;
+  margin-top: -150px;
 }
