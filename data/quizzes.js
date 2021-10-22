@@ -9,11 +9,6 @@ const popCultureQuizA =[['seven', 'nine', 'eight', 'six'],
                         ['Hey Jude', 'Let it Be', "Don't stop me now", 'Hello, Goodbye'],
                         ['89', '47', '74', '84'] ]  
 
-const correctAnswer1 = [['eight', 'May 4', 'Frodo', "Don't stop me now", '84'],
-                        ['True', 'False', 'True', 'False', 'True'],
-                        ["a corpse", 'peach','clowns', "a rabbit", 'Ice Cream'],
-                        ['Capital One', "Facebook", "Don't be evil", 'Target', "Impossible is nothing"]]
-
 const trueOrFalseQuizQ = ['In Scotland, the unicorn is their national animal.',
                         'The Great Wall of China is visibe from space', 
                         'An octopus has three hearts',
@@ -49,6 +44,12 @@ const brandSlogansQuizA = [ ['Chase', 'Citi', 'Discover', 'Capital One'],
                             ['Walmart', 'Target', 'Walgreens', 'Trader Joes'],
                             ["Impossible is nothing", "Just do it", "Belong anywhere", "We go the extra mile"] ]
 
+const correctAnswer1 = [['eight', 'May 4', 'Frodo', "Don't stop me now", '84'],
+                        ['True', 'False', 'True', 'False', 'True'],
+                        ["a corpse", 'peach','clowns', "a rabbit", 'Ice Cream'],
+                        ['Capital One', "Facebook", "Don't be evil", 'Target', "Impossible is nothing"]]
+
+
 
 export {
   popCultureQuizQ,
@@ -60,6 +61,5 @@ export {
   brandSlogansQuizQ,
   brandSlogansQuizA,
   correctAnswer1, 
-
 }
 

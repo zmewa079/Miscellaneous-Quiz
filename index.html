@@ -6,12 +6,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="js/app.js" type="module"></script>
   <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300&display=swap" rel="stylesheet">
   <title>Miscellaneous Quiz</title>
 </head>
 <body>
   <h1>Miscellaneous Quiz</h1>
   <h2>Instructions: Choose a category to take a quiz. The goal is to accumulate as many points as possible. If you can't choose, you can always click on the random quiz generator that will give you a random quiz to take. Have fun!</h2>
-  <h3>Scoring: Your score depends on how long you take to answer the question.  Your time left over is multiplied by 50 but with each wrong attempt, your overall score decreases by 25 points.</h3> 
+  <h2>Scoring: Your score depends on how long you take to answer the question.  Your time left over is multiplied by 50 but with each wrong attempt, your overall score decreases by 25 points.</h2> 
 
   <div class="img-container">
     <div class="img1">
@@ -21,7 +24,8 @@
       <img src="https://giphy.com/stickers/dfb-teams-3liga-3-liga-dritte-v2gKgwk8OfT83ZxzyU" alt="">
     </div>
   </div>
-
+  
+  
   <div id="countdown"></div>
   <div class="hide" id="secondTime"></div>
   
@@ -35,10 +39,10 @@
   <div id="quiz-container">
     <div id="question-container">
       <div id="question">QUESTION</div> <br>
-        <button id="choice0" class="btn btn-outline-dark">choice</button>
-        <button id="choice1" class="btn btn-outline-dark">choice</button>
-        <button id="choice2" class="btn btn-outline-dark">choice</button>
-        <button id="choice3" class="btn btn-outline-dark">choice</button><br>
+        <button id="choice0" class="btn1 btn-outline-dark">choice</button>
+        <button id="choice1" class="btn1 btn-outline-dark">choice</button>
+        <button id="choice2" class="btn1 btn-outline-dark">choice</button>
+        <button id="choice3" class="btn1 btn-outline-dark">choice</button><br>
         <button id="next" class="nextBtn btn-outline-dark">next</button>
     </div>
   </div>

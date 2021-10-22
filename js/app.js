@@ -16,6 +16,7 @@ let brandslogansBool
 let answered
 let timeLeft
 let stopClock
+// let attempts = 1
 let attempts = 1
 let score = 0
 
@@ -58,7 +59,7 @@ choice2El.addEventListener('click', handleAnswer3)
 choice3El.addEventListener('click', handleAnswer4)
 /*-------------------------------- Functions --------------------------------*/
 init ()
-
+//initial function that resets my code
 function init() {
   quizContainerEl.classList.add('hide')
   popcultureBool = false
@@ -73,7 +74,6 @@ function init() {
   attempts = 1
   index = 1
 
-
   document.body.style.backgroundColor = '#877491'
 
   choice2El.classList.remove('hide')
@@ -86,10 +86,10 @@ function init() {
   secondTime.classList.add('hide')
   countdownEl.classList.add('hide')
   nextEl.classList.remove('hide')
+  resetBtn.classList.add('hide')
 }
 
-
-
+//Next button function that executes when the next button is clicked on during the quiz.
 function nextBtn() {
   attempts = 1
   stopClock = 0
@@ -198,7 +198,7 @@ function popCultureQuiz() {
   trueOrFalseQuizBtn.classList.add('hide')
   funnyTriviaQuizBtn.classList.add('hide')
   brandSlogansQuizBtn.classList.add('hide')
-
+  resetBtn.classList.remove('hide')
   
 }
 
@@ -212,8 +212,6 @@ function trueOrFalseQuiz() {
       clearInterval(timer)
     }
   }, 1000)
-
-
 
   document.body.style.backgroundColor = '#736b85'
   topicNum = 1
@@ -241,7 +239,7 @@ function trueOrFalseQuiz() {
   trueOrFalseQuizBtn.classList.add('hide')
   funnyTriviaQuizBtn.classList.add('hide')
   brandSlogansQuizBtn.classList.add('hide')
-
+  resetBtn.classList.remove('hide')
 
 }
   
@@ -279,7 +277,7 @@ function funnyTriviaQuiz() {
   trueOrFalseQuizBtn.classList.add('hide')
   funnyTriviaQuizBtn.classList.add('hide')
   brandSlogansQuizBtn.classList.add('hide')
-
+  resetBtn.classList.remove('hide')
 
 }
 
@@ -292,7 +290,6 @@ function brandSlogansQuiz() {
       clearInterval(timer)
     }
   }, 1000)
-
 
   document.body.style.backgroundColor = '#83748f'
   topicNum = 3
@@ -315,7 +312,7 @@ function brandSlogansQuiz() {
   trueOrFalseQuizBtn.classList.add('hide')
   funnyTriviaQuizBtn.classList.add('hide')
   brandSlogansQuizBtn.classList.add('hide')
-
+  resetBtn.classList.remove('hide')
 
 }
 
@@ -327,20 +324,16 @@ function handleAnswer1() {
     stopClock = timeLeft
     countdownEl.classList.add('hide')
     score = score + ((stopClock*50)-(25*attempts))
-    if (index===5){
-      secondTime.innerText = `You finished the quiz! You answered in ${attempts} attempts and in ${5-stopClock} seconds. Your final score is ${score} points!`
+  if (index===5){
+    secondTime.innerText = `You finished the quiz! You answered in ${attempts} attempts and in ${5-stopClock} seconds. Your final score is ${score} points!`
+  } else {
+      secondTime.innerText = `You answered in ${attempts} attempts and in ${5-stopClock} seconds. You scored ${(stopClock*50)-(5*(attempts-1))} points!`
+    }
+      secondTime.classList.remove('hide')
+      } else if (answered === false) {
+        choice0El.style.color = 'red'
+        attempts++
       }
-      else{
-        secondTime.innerText = `You answered in ${attempts} attempts and in ${5-stopClock} seconds. You scored ${(stopClock*50)-(5*(attempts-1))} points!`
-      }
-    secondTime.classList.remove('hide')
-    // clearInterval(timer)
-
-  } else if (answered === false) {
-    choice0El.style.color = 'red'
-    attempts++
-
-  }
 }
 
 function handleAnswer2(){
@@ -382,7 +375,6 @@ function handleAnswer3(){
     }
 
     secondTime.classList.remove('hide')
-    // clearInterval(timer)
     } else if (answered === false) {
     choice2El.style.color = 'red'
     attempts++
@@ -394,6 +386,7 @@ function handleAnswer4(){
   if (choice3El.innerText=== (correctAnswer1[topicNum][index-1])) {
     choice3El.style.color = 'green'
     answered = true
+    
     stopClock = timeLeft
     countdownEl.classList.add('hide')
     score = score + ((stopClock*50)-(25*attempts))
@@ -404,7 +397,6 @@ function handleAnswer4(){
         secondTime.innerText = `You answered in ${attempts} attempts and in ${5-stopClock} seconds. You scored ${(stopClock*50)-(5*(attempts-1))} points!`
       }
     secondTime.classList.remove('hide')
-    // clearInterval(timer)
   } else if (answered === false) {
   choice3El.style.color = 'red'
   attempts++
