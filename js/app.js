@@ -16,7 +16,6 @@ let brandslogansBool
 let answered
 let timeLeft
 let stopClock
-// let attempts = 1
 let attempts = 1
 let score = 0
 
