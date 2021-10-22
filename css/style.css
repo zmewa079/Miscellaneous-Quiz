@@ -1,10 +1,15 @@
 body {
-  background-color: #899c7e;
+  background-color: #877491;
 }
 
-/* #quiz-container {
-  
-} */
+h1 {
+  text-align: center;
+  background-color: #9f8ea8;
+}
+
+h2 {
+  text-align: center;
+}
 
 #question-container {
   text-align: center;
@@ -13,8 +18,20 @@ body {
   border-width: 10px;
   height: 100px;
   padding: 20px;
-  margin: 50px;
+  margin-left: 150px;
+  margin-right: 150px;
+  
+  
 }
+
+img {
+  display: grid;
+  grid-column-start: 2;
+  grid-column-end: five;
+  margin: auto;
+  height: 100px;
+}
+
 
 
 .nextBtn {
@@ -27,6 +44,7 @@ body {
   display: flex;
   gap: 50px;
   justify-content: center;
+  margin-top: 200px; 
 }
 
 .control-buttons {
@@ -50,6 +68,15 @@ body {
 .startBtn, .submitBtn, .retakeBtn {
   background-color: #b5afc6;
   padding: 10px;
+}
+
+#countdown {
+  text-align: center;
+  background-color: #9f8ea8;
+  padding: 10px;
+  margin-right: 200px;
+  margin-left: 200px;
+
 }
 
 .hide {
