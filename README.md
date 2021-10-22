@@ -25,10 +25,9 @@
 + Define variables and cached elements needed for each of the quiz
 + Create a button for each quiz
 + Create a function for each quiz
-+ Create objects within each function that include: question, answer choices, correct answer, points
++ Create arrays within each function that include: question, answer choices, correct answer
 + Add scoring mechanics that keep track of points obtained
-+ Add a timer to each question
-+ Add audio when quiz is clicked 
++ Add a timer to each question 
 + Add main page/reset button to return to page with quiz categories
 + Add an array that will hold all the quizzes 
 + Display function to display the quiz when clicked upon
