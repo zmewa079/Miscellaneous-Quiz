@@ -10,10 +10,10 @@
 
 ## View:
 ### My initial wireframe:
-[to be added]
+![initial picture of wireframe](assets/Unit1-Project-Wireframe.png)
 
 ### Final outlook of the quiz:
-[to be added]
+![Final quiz game](assets/Quiz-Game.png)
 
 ## Technology Implemented:
 + HTML
@@ -22,6 +22,8 @@
 + Git
 
 ## Stretch Goals:
-+ add background image ti each quiz
-+ have an animate feature
++ ~~add randomizing quiz button~~
++ add background image to each quiz
++ add an animate timer
 + add mobile responsiveness 
++ add sound to each button
