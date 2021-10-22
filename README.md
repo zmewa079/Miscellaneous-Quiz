@@ -21,6 +21,9 @@
 + JavaScript
 + Git
 
+## Credits:
++ Background transparent image from [Giphy](https://giphy.com/stickers/dfb-teams-3liga-3-liga-dritte-v2gKgwk8OfT83ZxzyU) 
+
 ## Stretch Goals:
 + ~~add randomizing quiz button~~
 + add background image to each quiz
